@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3479579449736797779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5161335224818897321}
+  - component: {fileID: 3839622561599109319}
+  - component: {fileID: 6716037680294962236}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5161335224818897321
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479579449736797779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2702699139509767475}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3839622561599109319
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479579449736797779}
+  m_CullTransparentMesh: 0
+--- !u!114 &6716037680294962236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479579449736797779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3276508118793192443, guid: 5fd6afd6e07105d47bb1a93de01ac76b,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7727944816766162003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2702699139509767475}
+  - component: {fileID: 6048431113572861868}
+  - component: {fileID: 2392067692104607588}
+  - component: {fileID: 8313891498928042776}
+  - component: {fileID: 3262098901590040017}
+  - component: {fileID: 2948936105775321553}
+  - component: {fileID: 9130263206874148303}
+  - component: {fileID: 8414012392180208798}
+  m_Layer: 8
+  m_Name: MiloPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2702699139509767475
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5161335224818897321}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6048431113572861868
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_CullTransparentMesh: 0
+--- !u!114 &2392067692104607588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab8b4e9c6b30d04c959264402f98507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitName: Milo
+  MaxHP: 200
+  CurrentHP: 200
+  UnitType: 0
+  MaxSecondaryResource: 100
+  CurrentSecondaryResource: 0
+  SecondaryResource: 1
+  BaseSpeed: 200
+  BaseDefense: 100
+  BaseAttack: 100
+  BaseLuck: 999
+  CurrentSpeed: 200
+  CurrentDefense: 100
+  CurrentAttack: 100
+  CurrentLuck: 999
+  CurrentTimeToNextTurn: 0
+  Emnity: 0
+  BattleHUDPrefab: {fileID: 6728432558125585344, guid: 2d565ea18b912774ba5d6504eea5f4d8,
+    type: 3}
+  BattleHUD: {fileID: 0}
+  TurnSprite: {fileID: -3276508118793192443, guid: 5fd6afd6e07105d47bb1a93de01ac76b,
+    type: 3}
+  DamageTextPrefab: {fileID: 5278736328723432, guid: 14fdfa38c90767247af5c560ad0b9408,
+    type: 3}
+  MiloCharacter: {fileID: 11400000, guid: 682b2fc4948442c4a9e440bc5a837f13, type: 2}
+  Skills:
+  - {fileID: 8313891498928042776}
+  - {fileID: 2948936105775321553}
+  - {fileID: 3262098901590040017}
+  - {fileID: 9130263206874148303}
+--- !u!114 &8313891498928042776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af3dfac04885ea4bb8a521c9f837095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillName: Tap Punch
+  ImageSkill: {fileID: 21300000, guid: 9cae92baca2a37d45abca70057749b1b, type: 3}
+  SkillDescription: Deals 20 damage to an enemy while generating 20 RG
+  u: {fileID: 2392067692104607588}
+  MinAttackMultiplier: 0.3
+  MaxAttackMultiplier: 0.35
+--- !u!114 &3262098901590040017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a464c71977c86c49b6f980b3c8b56bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillName: Warcry
+  ImageSkill: {fileID: 21300000, guid: 324f6567e3fff1346872ebb8f70e6c09, type: 3}
+  SkillDescription: Increases the attack of the party and generates 40 RG.
+  u: {fileID: 2392067692104607588}
+  IncreaseAttack: {fileID: 8414012392180208798}
+--- !u!114 &2948936105775321553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ea2d0b4baa7ce49893c58d8b0168fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillName: Super Punch
+  ImageSkill: {fileID: 21300000, guid: 3fee9d964e6cddf4c8e538a39aa7672d, type: 3}
+  SkillDescription: Consumes RG to deal a great amount of damage to a single target.
+  u: {fileID: 2392067692104607588}
+  MinAttackMultiplier: 0.8
+  MaxAttackMultiplier: 0.85
+--- !u!114 &9130263206874148303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fef48d142c34b248bbc938b35f71225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillName: Meditation
+  ImageSkill: {fileID: 21300000, guid: 6e2fdf8fa6843a842b1b5169f2b7fc35, type: 3}
+  SkillDescription: Consumes current RG to restore HP.
+  u: {fileID: 2392067692104607588}
+  Effects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &8414012392180208798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727944816766162003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e62aacafea94dd45b44a2df1e49ec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: 0
+  Stackable: 1
+  TurnDuration: 3
+  SkillSprite: {fileID: 21300000, guid: bf33e038627b26d498bec2b76a572097, type: 3}
+  Percentage: 0.1
