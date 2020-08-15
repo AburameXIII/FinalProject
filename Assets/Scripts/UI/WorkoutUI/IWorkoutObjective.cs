@@ -7,4 +7,5 @@ public interface IWorkoutObjective
     void Setup(float Amount);
     void StartMeasuring();
     bool IsCompleted();
+    void Stop();
 }

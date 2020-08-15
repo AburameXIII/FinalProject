@@ -148,6 +148,7 @@ public class UIManager : MonoBehaviour
 
         //CHANGE SCENES
         ActivateHomeUI();
+        HomeUI.GetComponent<HomeUI>().ShowParty();
         HomeCamera.cullingMask = ~(1 << LayerMask.NameToLayer("Workout"));
         SceneManager.UnloadSceneAsync("Workout");
         FadeIn();
@@ -173,6 +174,7 @@ public class UIManager : MonoBehaviour
 
         //CHANGE SCENES
         ActivateHomeUI();
+        HomeUI.GetComponent<HomeUI>().ShowParty();
         HomeCamera.cullingMask = ~(1 << LayerMask.NameToLayer("Fight"));
         SceneManager.UnloadSceneAsync("Fight");
         FadeIn();

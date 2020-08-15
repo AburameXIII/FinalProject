@@ -9,5 +9,6 @@ public class Workout : ScriptableObject
     public int Difficulty;
     public int EstimatedDuration;
     public List<Exercise> Exercises;
+    public int Experience;
 }
 

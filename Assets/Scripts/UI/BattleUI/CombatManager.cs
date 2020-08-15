@@ -27,24 +27,17 @@ public class CombatManager : MonoBehaviour
     public List<Transform> SpawnPositions;
     public List<Transform> EnemySpawnPositions;
 
-    public List<Character> TESTCHARACTERSDELETE;
-    public List<Enemy> TESTENEMYDELETE;
-
     public Actions Actions;
-
+    private Level Level;
 
     public AnimationCurve DefenseResistanceCurve;
     public AnimationCurve LuckCriticalCurve;
 
     private Unit UnitChoosing;
 
-    public DefeatUI DefeatUI;
+    public EndUI DefeatUI;
+    public EndUI VictoryUI;
 
-    //TO DELETE
-    public void TestStart()
-    {
-        StartCombat(TESTCHARACTERSDELETE, TESTENEMYDELETE, FightType.Boss);
-    }
 
 
 
@@ -54,31 +47,36 @@ public class CombatManager : MonoBehaviour
         {
             DefeatUI.FadeOut();
             State = BattleState.Start;
-            StartCombat(PartyManager.Instance.Party, UIManager.CurrentLevel.Enemies, UIManager.CurrentLevel.FightType);
+            StartCombat();
         }
     }
 
-    public void StartCombat(List<Character> CharacterInfo, List<Enemy> EnemyInfo, FightType FightType)
+    public void StartCombat()
     {
-        
-
         if (State == BattleState.Start)
         {
             ResetValues();
 
-            SpawnCharacters(CharacterInfo);
-            SpawnEnemies(EnemyInfo, FightType);
+            SpawnCharacters(PartyManager.Instance.Party);
+            SpawnEnemies(Level.Enemies, Level.FightType);
 
 
             //Calculate turns
             CalculateTurns(8);
             TurnsUI.Setup(Turns);
 
-            
+
 
             //EVENTUALLY A TEXT INTRO MAYBE?
             StartCoroutine(CombatStartDialogue());
         }
+    }
+    
+
+    public void StartCombat(Level l)
+    {
+        Level = l;
+        StartCombat();
     }
 
 
@@ -227,7 +225,7 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        StartCombat(PartyManager.Instance.Party, UIManager.CurrentLevel.Enemies, UIManager.CurrentLevel.FightType);
+        StartCombat(UIManager.CurrentLevel);
 
         UIManager.Instance.FadeIn();
 
@@ -319,12 +317,13 @@ public class CombatManager : MonoBehaviour
             DefeatUI.gameObject.SetActive(true);
             DefeatUI.FadeIn();
             State = BattleState.Lost;
-            Debug.Log("YOU LOSE");
-            yield return 0;
         } else if (Enemies.Count == 0)
         {
+            VictoryUI.gameObject.SetActive(true);
+            VictoryUI.FadeIn();
+            State = BattleState.Win;
             Debug.Log("YOU WIN");
-            yield return 0;
+            StartCoroutine(VictoryEXP());
         } else
         {
             NextTurn();
@@ -333,5 +332,15 @@ public class CombatManager : MonoBehaviour
 
 
         
+    }
+
+
+    IEnumerator VictoryEXP()
+    {
+        yield return new WaitForSeconds(VictoryUI.LerpDuration);
+        foreach (Character c in PartyManager.Instance.Party)
+        {
+            PartyManager.Instance.GetFightProgression(c).AddExperience(Level.Experience);
+        }
     }
 }

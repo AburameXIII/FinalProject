@@ -33,8 +33,8 @@ public class Milo : Unit, ICharacter
     {
        
         UnitName = "Milo";
-        MaxHP = 100;
-        CurrentHP = 100;
+        MaxHP = 900;
+        CurrentHP = 900;
 
         MaxSecondaryResource = 100;
         CurrentSecondaryResource = 0;
@@ -42,11 +42,11 @@ public class Milo : Unit, ICharacter
 
         BaseSpeed = 200;
         BaseDefense = 100;
-        BaseAttack = 50;
+        BaseAttack = 999;
 
         CurrentSpeed = 200;
         CurrentDefense = 200;
-        CurrentAttack = 50;
+        CurrentAttack = 999;
 
         TurnSprite = MiloCharacter.CharacterProfilePicture;
 

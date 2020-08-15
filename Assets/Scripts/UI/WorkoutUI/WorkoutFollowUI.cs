@@ -11,7 +11,9 @@ public class WorkoutFollowUI : MonoBehaviour
     public GameObject RestUI;
     public GameObject ReadyUI;
 
-    private int ExerciseNumber = 0;
+    public EndUI WorkoutCompletedUI;
+
+    public int ExerciseNumber = 0;
 
     private void Awake()
     {
@@ -38,7 +40,11 @@ public class WorkoutFollowUI : MonoBehaviour
 
 
         //SET UP REST TIME
-        RestUI.GetComponent<RestUI>().SetupRest(ExerciseNumber);
+        if (ExerciseNumber < UIManager.CurrentWorkout.Exercises.Count - 1)
+        {
+            //ONLY SET IT UP IF THERE IS AN EXERCISE NEXT
+            RestUI.GetComponent<RestUI>().SetupRest(ExerciseNumber);
+        }
     }
 
     public void SwitchToRestUI()
@@ -47,7 +53,9 @@ public class WorkoutFollowUI : MonoBehaviour
         if (ExerciseNumber == UIManager.CurrentWorkout.Exercises.Count - 1)
         {
             //GO TO LAST SCREEN
-
+            WorkoutCompletedUI.gameObject.SetActive(true);
+            WorkoutCompletedUI.FadeIn();
+            StartCoroutine(WorkoutEXP());
             return;
         }
 
@@ -87,7 +95,11 @@ public class WorkoutFollowUI : MonoBehaviour
         ExerciseUI.GetComponent<ExerciseFollowUI>().StartExercise();
 
         //SET UP REST TIME
-        RestUI.GetComponent<RestUI>().SetupRest(ExerciseNumber);
+        if (ExerciseNumber < UIManager.CurrentWorkout.Exercises.Count - 1)
+        {
+            //ONLY SET IT UP IF THERE IS AN EXERCISE NEXT
+            RestUI.GetComponent<RestUI>().SetupRest(ExerciseNumber);
+        }
     }
 
 
@@ -99,6 +111,15 @@ public class WorkoutFollowUI : MonoBehaviour
             ExerciseUI.GetComponent<ExerciseFollowUI>().SetUpExercise(ExerciseNumber);
             ExerciseUI.GetComponent<ExerciseFollowUI>().StartExercise();
             RestUI.GetComponent<RestUI>().SetupRest(ExerciseNumber);
+        }
+    }
+
+    IEnumerator WorkoutEXP()
+    {
+        yield return new WaitForSeconds(WorkoutCompletedUI.LerpDuration);
+        foreach (Character c in PartyManager.Instance.Party)
+        {
+            PartyManager.Instance.GetTrainProgression(c).AddExperience(UIManager.CurrentWorkout.Experience);
         }
     }
 }

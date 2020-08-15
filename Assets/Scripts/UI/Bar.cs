@@ -10,7 +10,7 @@ public class Bar : MonoBehaviour, IWorkoutObjective
     public float LerpDuration;
     private float InitialValue;
     private bool lerpNow;
-    private float CurrentValue;
+    public float CurrentValue;
 
     private float startLerp;
 
@@ -61,6 +61,14 @@ public class Bar : MonoBehaviour, IWorkoutObjective
         lerpNow = true;
         startLerp = Time.time;
         TargetValue = newValue;
+    }
+
+    public void ChangeCurrentValueFlat(float newValue)
+    {
+        TargetValue = newValue;
+        CurrentValue = newValue;
+        LerpValueBar.fillAmount = CurrentValue / MaxValue;
+        ChangeText();
     }
 
 

@@ -21,7 +21,7 @@ public class RestUI : MonoBehaviour
 
     void Start()
     {
-        Color = UIManager.CurrentWorkoutCharacter.CharacterColor;
+        Color = UIManager.CurrentWorkoutCharacter.CharacterSecondaryColor;
         HorizontalBar.SetColor(Color);
         ExitButton.onClick.AddListener(delegate { UIManager.Instance.FinishWorkout(); });
     }

@@ -9,6 +9,7 @@ public class Character : ScriptableObject
     public string CharacterName;
     public Sprite CharacterProfilePicture;
     public List<Workout> Workouts;
-    public Color CharacterColor;
+    public Color CharacterPrimaryColor;
+    public Color CharacterSecondaryColor;
     public GameObject CharacterPrefab;
 }

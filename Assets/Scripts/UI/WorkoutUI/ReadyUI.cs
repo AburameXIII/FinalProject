@@ -13,7 +13,7 @@ public class ReadyUI : MonoBehaviour
 
     private void Awake()
     {
-        CountdownBar.SetColor(UIManager.CurrentWorkoutCharacter.CharacterColor);
+        CountdownBar.SetColor(UIManager.CurrentWorkoutCharacter.CharacterPrimaryColor);
         Switch = true;
         ExitButton.onClick.AddListener(delegate { UIManager.Instance.FinishWorkout(); });
 

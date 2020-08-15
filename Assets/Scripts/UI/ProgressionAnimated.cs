@@ -20,21 +20,15 @@ public class ProgressionAnimated : MonoBehaviour
 
     private float TimeSinceUpdate = 0f;
 
-    public void TEST()
-    {
-        SetProgression(new Progression());
-    }
+    public Text CharacterName;
+    public GameObject Unlockable;
+    public Text ExpGained;
 
-    public void TEST2()
-    {
-        Progression.AddExperience(1000);
-    }
-
-
-
-    public void SetProgression(Progression p)
+    public void SetProgression(Character c, Progression p, Color cl)
     {
         Progression = p;
+        CharacterName.text = c.CharacterName;
+        ExperienceBar.SetColor(cl);
 
         Level = Progression.GetLevel();
         Experience = Progression.GetExperience();
@@ -44,6 +38,8 @@ public class ProgressionAnimated : MonoBehaviour
 
         Progression.OnExperienceChanged += ProgressionOnExperienceChanged;
         Progression.OnLevelChanged += ProgressionOnLevelChanged;
+
+        
     }
 
     private void ProgressionOnLevelChanged(object sender, EventArgs e)
@@ -58,10 +54,15 @@ public class ProgressionAnimated : MonoBehaviour
         ExperienceToAnimate = ex.Amount;
         ExperienceToAnimateAux = ex.Amount;
         TimeSinceUpdate = 0f;
+        Debug.Log(ExpGained);
+        Debug.Log(ex);
+        Debug.Log(ex.Amount);
+        ExpGained.text = String.Format("+{0:0}EXP",ex.Amount);
     }
 
     private void Update()
     {
+        Debug.Log(ExpGained);
         if (Animating)
         {
             if(Level < Progression.GetLevel())
@@ -87,6 +88,12 @@ public class ProgressionAnimated : MonoBehaviour
         
     }
 
+    private void OnDestroy()
+    {
+        Progression.OnExperienceChanged -= ProgressionOnExperienceChanged;
+        Progression.OnLevelChanged -= ProgressionOnLevelChanged;
+    }
+
     private void AddExperience()
     {
         
@@ -98,10 +105,7 @@ public class ProgressionAnimated : MonoBehaviour
 
 
         if (EXPPERFRAME > 0)
-        {
-            
-
-            
+        {            
 
             while (EXPPERFRAME > 0)
             {
@@ -118,11 +122,15 @@ public class ProgressionAnimated : MonoBehaviour
                     Level++;
                     Experience = 0;
                     //ADD EVENT HANDLER, ON LEVEL CHANGED
-
-                    LevelText.text = Level.ToString();
+                    Unlockable.SetActive(true);
                     if (!Progression.IsMaxLevel(Level))
                     {
+                        LevelText.text = Level.ToString();
                         ExperienceBar.ChangeCurrentMax(Experience, Progression.GetExperienceToNextLevel(Level));
+                    } else
+                    {
+                        LevelText.text = "MAX";
+                        ExperienceBar.ChangeCurrentMax(1, 1);
                     }
 
                 }
@@ -132,7 +140,7 @@ public class ProgressionAnimated : MonoBehaviour
 
             //Change the LerpDuration based on this time;
             ExperienceBar.LerpDuration = TimeSinceUpdate;
-            ExperienceBar.ChangeCurrentValue(Experience);
+            ExperienceBar.ChangeCurrentValueFlat(Experience);
 
             //Reset TimeSinceLastFrameUpdate
             TimeSinceUpdate = 0;

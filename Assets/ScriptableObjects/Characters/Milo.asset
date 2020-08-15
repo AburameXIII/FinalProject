@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08b328a60b068de45abe7383764ddf28, type: 2}
   - {fileID: 11400000, guid: af48c9cb633cb6749863c7e4507c718b, type: 2}
   - {fileID: 11400000, guid: 9d886526d99f1c8448f43ee11d087a18, type: 2}
-  CharacterColor: {r: 0, g: 0.62352943, b: 0.28627452, a: 1}
+  CharacterPrimaryColor: {r: 0, g: 0.62352943, b: 0.28627452, a: 1}
+  CharacterSecondaryColor: {r: 0.4901961, g: 0.7254902, b: 0.3803922, a: 1}
   CharacterPrefab: {fileID: 7727944816766162003, guid: 849a0f71ceb05c141a7fd766fbe00d77,
     type: 3}

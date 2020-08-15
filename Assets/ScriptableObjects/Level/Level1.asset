@@ -17,3 +17,4 @@ MonoBehaviour:
   FightType: 1
   Enemies:
   - {fileID: 11400000, guid: ee63e85d71c4684478523bea597531dc, type: 2}
+  Experience: 1000

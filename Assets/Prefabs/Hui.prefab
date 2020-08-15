@@ -223,11 +223,11 @@ MonoBehaviour:
   SecondaryResource: 0
   BaseSpeed: 200
   BaseDefense: 100
-  BaseAttack: 100
+  BaseAttack: 888
   BaseLuck: 100
   CurrentSpeed: 200
   CurrentDefense: 100
-  CurrentAttack: 100
+  CurrentAttack: 888
   CurrentLuck: 100
   CurrentTimeToNextTurn: 0
   Emnity: 0

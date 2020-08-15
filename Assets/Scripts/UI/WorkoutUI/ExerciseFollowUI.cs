@@ -18,6 +18,7 @@ public class ExerciseFollowUI : MonoBehaviour
 
     public Bar HorizontalBar;
     public DistanceTracker DistanceTracker;
+    public PaceTracker PaceTracker;
 
     public Text Amount;
     public Button ExitButton;
@@ -30,7 +31,7 @@ public class ExerciseFollowUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Color = UIManager.CurrentWorkoutCharacter.CharacterColor;
+        Color = UIManager.CurrentWorkoutCharacter.CharacterPrimaryColor;
         HorizontalBar.SetColor(Color);
         ExitButton.onClick.AddListener(delegate { UIManager.Instance.FinishWorkout(); });
     }
@@ -96,7 +97,7 @@ public class ExerciseFollowUI : MonoBehaviour
                 switch (e.ObjectiveType)
                 {
                     case WorkoutObjective.Amount:
-                        HorizontalBar.SetTextForm("{0} / {1}");
+                        HorizontalBar.SetTextForm("{0:0} / {1:0}");
                         break;
                     case WorkoutObjective.DistanceKilometers:
                         HorizontalBar.SetTextForm("{ 0:0.0} / { 1:0.0} Km");
@@ -106,8 +107,11 @@ public class ExerciseFollowUI : MonoBehaviour
                         break;
                 }
                 HorizontalBar.gameObject.SetActive(true);
-
+                
                 HorizontalBar.ChangeCurrentMax(0, e.ObjectiveQuantity);
+                PaceTracker.Setup(e.Pace.x + e.Pace.y, e.ObjectiveQuantity, HorizontalBar);
+                ObjectiveMeasure = PaceTracker;
+
                 break;
             case MeasuringMethod.Time:
 
@@ -157,6 +161,7 @@ public class ExerciseFollowUI : MonoBehaviour
         if (ObjectiveMeasure != null && ObjectiveMeasure.IsCompleted())
         {
             WorkoutFollowUI.Instance.SwitchToRestUI();
+            if (ObjectiveMeasure != null) ObjectiveMeasure.Stop();
             ObjectiveMeasure = null;
         }
     }
@@ -164,12 +169,14 @@ public class ExerciseFollowUI : MonoBehaviour
     public void FinishExercise()
     {
         WorkoutFollowUI.Instance.SwitchToRestUI();
+        if(ObjectiveMeasure!=null) ObjectiveMeasure.Stop();
         ObjectiveMeasure = null;
     }
 
     public void GoBack()
     {
         WorkoutFollowUI.Instance.GoBack();
+        if (ObjectiveMeasure != null) ObjectiveMeasure.Stop();
         ObjectiveMeasure = null;
     }
 }

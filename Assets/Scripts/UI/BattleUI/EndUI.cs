@@ -4,9 +4,9 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DefeatUI : MonoBehaviour
+public class EndUI : MonoBehaviour
 {
-    public List<Graphic> GraphicsToAnimate;
+    private List<Graphic> GraphicsToAnimate = new List<Graphic>();
     private List<Color> OriginColor = new List<Color>();
     private List<Color> DestinationColor = new List<Color>();
 
@@ -17,8 +17,19 @@ public class DefeatUI : MonoBehaviour
 
     private bool Disable = false;
 
+    private void Start()
+    {
+        GraphicsToAnimate = new List<Graphic>();
+        foreach (Graphic g in GetComponentsInChildren<Graphic>())
+        {
+            GraphicsToAnimate.Add(g);
+        }
+    }
+
     public void FadeIn()
     {
+        if(GraphicsToAnimate.Count == 0) Start();
+
         StartLerpTime = Time.time;
 
         Lerp = true;
@@ -27,15 +38,14 @@ public class DefeatUI : MonoBehaviour
         DestinationColor = new List<Color>();
         foreach(Graphic g in GraphicsToAnimate)
         {
-            OriginColor.Add(g.color);
+            DestinationColor.Add(g.color);
             Color c = g.color;
-            c.a = 1;
-            DestinationColor.Add(c);
+            c.a = 0;
+            g.color = c;
+            OriginColor.Add(c);
         }
 
-        Color background = DestinationColor[0];
-        background.a = 0.67f;
-        DestinationColor[0] = background;
+        
 
         Disable = false;
 

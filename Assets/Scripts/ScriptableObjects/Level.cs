@@ -9,5 +9,6 @@ public class Level : ScriptableObject
     public string BossTitle;
     public FightType FightType;
     public List<Enemy> Enemies;
+    public int Experience;
 }
 

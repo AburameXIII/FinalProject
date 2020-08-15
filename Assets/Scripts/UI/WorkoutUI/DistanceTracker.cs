@@ -40,6 +40,12 @@ public class DistanceTracker : MonoBehaviour, IWorkoutObjective
         Start = true;
     }
 
+    public void Stop()
+    {
+        Start = false;
+        CurrentDistance = 0;
+    }
+
     private IEnumerator GetLocation()
     {
         Input.location.Start();

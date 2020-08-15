@@ -57,6 +57,21 @@ public class Progression
         
     }
 
+    public int GetExperienceToNextLevel()
+    {
+        if (Level <= ExperiencePerLevel.Length)
+        {
+            return ExperiencePerLevel[Level - 1];
+        }
+        else
+        {
+            //Invalid level
+            Debug.LogError("Level invalid:" + Level);
+            return 0;
+        }
+
+    }
+
     public bool IsMaxLevel()
     {
         return IsMaxLevel(Level);

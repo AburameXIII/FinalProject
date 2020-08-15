@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct CharacterProgress
+{
+    public Progression FightProgression;
+    public Progression TrainProgression;
+
+    public CharacterProgress(Progression F, Progression T)
+    {
+        FightProgression = F;
+        TrainProgression = T;
+    }
+}
+
 public class PartyManager : MonoBehaviour
 {
     public static PartyManager Instance { set; get; }
@@ -10,19 +22,19 @@ public class PartyManager : MonoBehaviour
 
     public List<Character> AllCharacters;
 
-    public Dictionary<Character, Progression> CharacterProgression;
+    public Dictionary<Character, CharacterProgress> CharacterProgression;
 
     void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        CharacterProgression = new Dictionary<Character, Progression>();
+        CharacterProgression = new Dictionary<Character, CharacterProgress>();
 
         //try to load save progression from files, else, reset
         foreach (Character c in AllCharacters)
         {
-            CharacterProgression.Add(c, new Progression());
+            CharacterProgression.Add(c, new CharacterProgress(new Progression(), new Progression()));
         }
     }
 
@@ -32,11 +44,18 @@ public class PartyManager : MonoBehaviour
         
     }
 
-    public Progression GetProgression(Character c)
+    public Progression GetFightProgression(Character c)
     {
-        Progression p = null;
+        CharacterProgress p;
         CharacterProgression.TryGetValue(c, out p);
-        return p;
+        return p.FightProgression;
+    }
+
+    public Progression GetTrainProgression(Character c)
+    {
+        CharacterProgress p;
+        CharacterProgression.TryGetValue(c, out p);
+        return p.TrainProgression;
     }
 }
 

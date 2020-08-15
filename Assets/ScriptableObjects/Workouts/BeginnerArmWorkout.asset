@@ -17,3 +17,4 @@ MonoBehaviour:
   EstimatedDuration: 15
   Exercises:
   - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+  Experience: 100
