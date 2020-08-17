@@ -215,20 +215,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitName: Hui, the Snake Emperor
-  MaxHP: 300
-  CurrentHP: 300
+  MaxHP: 100
+  CurrentHP: 100
   UnitType: 1
   MaxSecondaryResource: 0
   CurrentSecondaryResource: 0
   SecondaryResource: 0
-  BaseSpeed: 200
-  BaseDefense: 100
-  BaseAttack: 888
-  BaseLuck: 100
-  CurrentSpeed: 200
-  CurrentDefense: 100
-  CurrentAttack: 888
-  CurrentLuck: 100
+  BaseSpeed: 20
+  BaseDefense: 20
+  BaseAttack: 20
+  BaseLuck: 20
+  CurrentSpeed: 20
+  CurrentDefense: 20
+  CurrentAttack: 20
+  CurrentLuck: 20
   CurrentTimeToNextTurn: 0
   Emnity: 0
   BattleHUDPrefab: {fileID: 9117556131758720163, guid: 5a71f4b7422489e45af40dcf090c2a23,

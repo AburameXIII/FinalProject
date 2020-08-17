@@ -33,20 +33,24 @@ public class Milo : Unit, ICharacter
     {
        
         UnitName = "Milo";
-        MaxHP = 900;
-        CurrentHP = 900;
+        int Level = PartyManager.Instance.GetTrainProgression(MiloCharacter).GetLevel();
+
+        MaxHP = MiloCharacter.HP[Level-1];
+        CurrentHP = MiloCharacter.HP[Level - 1];
 
         MaxSecondaryResource = 100;
         CurrentSecondaryResource = 0;
         SecondaryResource = SecondaryResourceType.RG;
 
-        BaseSpeed = 200;
-        BaseDefense = 100;
-        BaseAttack = 999;
+        BaseSpeed = MiloCharacter.Speed[Level-1];
+        BaseDefense = MiloCharacter.Defense[Level - 1];
+        BaseAttack = MiloCharacter.Attack[Level - 1];
+        BaseLuck = MiloCharacter.Luck[Level - 1];
 
-        CurrentSpeed = 200;
-        CurrentDefense = 200;
-        CurrentAttack = 999;
+        CurrentSpeed = MiloCharacter.Speed[Level - 1];
+        CurrentDefense = MiloCharacter.Defense[Level - 1];
+        CurrentAttack = MiloCharacter.Attack[Level - 1];
+        CurrentLuck = MiloCharacter.Luck[Level - 1];
 
         TurnSprite = MiloCharacter.CharacterProfilePicture;
 

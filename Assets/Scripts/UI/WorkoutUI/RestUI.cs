@@ -29,16 +29,16 @@ public class RestUI : MonoBehaviour
 
     public void SetupRest(int ExerciseNumber)
     {
-        Exercise NextExercise = UIManager.CurrentWorkout.Exercises[ExerciseNumber+1];
+        ExerciseDetail NextExercise = UIManager.CurrentWorkout.Exercises[ExerciseNumber+1];
 
         NextExerciseNumber.text = "Next " + (ExerciseNumber + 2) + " / " + UIManager.CurrentWorkout.Exercises.Count;
-        NextExerciseName.text = NextExercise.ExerciseName;
+        NextExerciseName.text = NextExercise.Exercise.ExerciseName;
         NextExerciseAmount.text = NextExercise.GetObjective();
 
         HorizontalBar.Setup(UIManager.CurrentWorkout.Exercises[ExerciseNumber].RestTime);
 
         if (ExercisePreview != null) Destroy(ExercisePreview);
-        ExercisePreview = Instantiate(NextExercise.ExercisePreview, ExercisePreviewLocation);
+        ExercisePreview = Instantiate(NextExercise.Exercise.ExercisePreview, ExercisePreviewLocation);
     }
 
     public void StartRest()

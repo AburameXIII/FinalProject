@@ -10,23 +10,38 @@ public class WorkoutContainer : MonoBehaviour
     public List<Image> StarDifficulty;
     public Text WorkoutDuration;
     public Button ToExercise;
+    public GameObject Locked;
+    public Text LockedText;
 
     private Workout Workout;
     private Character Character;
 
-    public void UpdateWorkout(Character c, Workout w)
+    public void UpdateWorkout(Character c, WorkoutUnlock w)
     {
         CharacterPicture.sprite = c.CharacterProfilePicture;
-        WorkoutName.text = w.WorkoutName;
-        WorkoutDuration.text = w.EstimatedDuration.ToString() + " mins";
-        for(int i = 0; i < w.Difficulty; i++)
+        WorkoutName.text = w.Workout.WorkoutName;
+        WorkoutDuration.text = w.Workout.EstimatedDuration.ToString() + " mins";
+
+
+
+        for(int i = 0; i < w.Workout.Difficulty; i++)
         {
             StarDifficulty[i].color = Color.yellow;
         }
 
-        ToExercise.onClick.AddListener(delegate { UIManager.Instance.SwitchToExerciseUI(c,w); });
 
-        Workout = w;
+        int FightLevel = PartyManager.Instance.GetFightProgression(c).GetLevel();
+        if(FightLevel < w.Level)
+        {
+            Locked.SetActive(true);
+            LockedText.text = "Reach Fight level " + w.Level + " to unlock this";
+        } else
+        {
+            Locked.SetActive(false);
+            ToExercise.onClick.AddListener(delegate { UIManager.Instance.SwitchToExerciseUI(c, w.Workout); });
+        }
+
+        Workout = w.Workout;
         Character = c;
     }
 }

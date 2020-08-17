@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9670245167f014589bcf9802edcfa3, type: 3}
+  m_Name: DiagonalPlank
+  m_EditorClassIdentifier: 
+  ExerciseName: DiagonalPlank
+  ObjectiveType: 1
+  PossibleMeasuringMethod: 000000000200000003000000
+  ObjectiveQuantity: 10
+  Pace: {x: 1, y: 3}
+  RestTime: 25
+  RequiredEquipment: 
+  SmallExercisePreview: {fileID: 4440029972086862747, guid: 0f2d2353310713b429fd3b8afc682ba2,
+    type: 3}
+  ExercisePreview: {fileID: 4440029972086862747, guid: 0f2d2353310713b429fd3b8afc682ba2,
+    type: 3}

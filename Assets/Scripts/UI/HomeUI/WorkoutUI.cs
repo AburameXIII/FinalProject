@@ -27,7 +27,7 @@ public class WorkoutUI : MonoBehaviour
 
         foreach(Character c in PartyManager.Instance.Party)
         {
-            foreach (Workout w in c.Workouts)
+            foreach (WorkoutUnlock w in c.WorkoutUnlocks)
             {
                 var newWorkoutUI = Instantiate(WorkoutPrefab, Vector3.zero, Quaternion.identity);
                 newWorkoutUI.transform.SetParent(WorkoutContainer.transform, false);

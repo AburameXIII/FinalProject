@@ -14,7 +14,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkoutName: Beginner Arm Workout
   Difficulty: 1
-  EstimatedDuration: 15
+  EstimatedDuration: 10
   Exercises:
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  Experience: 100
+  - Exercise: {fileID: 11400000, guid: a2cada793b91d4344986e24d46717731, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 0
+  - Exercise: {fileID: 11400000, guid: 2272b27f142ca9c4496e0de66ebdebec, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 10
+  - Exercise: {fileID: 11400000, guid: b249af33572a7414ca7ba7aaaef40d09, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 10
+    Pace: {x: 2, y: 2}
+    RestTime: 25
+  - Exercise: {fileID: 11400000, guid: 5e4644db68923544cba0dff601a3d443, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 6
+    Pace: {x: 1, y: 2}
+    RestTime: 25
+  - Exercise: {fileID: 11400000, guid: 9a4b6189cb308ec4f807eb2bd470b924, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 25
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 1, y: 2}
+    RestTime: 25
+  - Exercise: {fileID: 11400000, guid: f6f74a917ed09224a85cb8f7587424c6, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 25
+  - Exercise: {fileID: 11400000, guid: b2a9a1823165e4b40b58228044114bf0, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 10
+    Pace: {x: 1, y: 2}
+    RestTime: 25
+  - Exercise: {fileID: 11400000, guid: 37341d7dce76b6b408d026219b00421b, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 25
+  - Exercise: {fileID: 11400000, guid: 24605b038ed1c5f45ba7426b6c7af9e0, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 1, y: 2}
+    RestTime: 10
+  - Exercise: {fileID: 11400000, guid: 5898eea8bfffce749892a2a3efb1731d, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 5
+  - Exercise: {fileID: 11400000, guid: 2abf190e921390840ac3f0b27a489f57, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 5
+  - Exercise: {fileID: 11400000, guid: 3bf6857faad616f4e9ca052cd87664df, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 5
+  - Exercise: {fileID: 11400000, guid: 2e6538a73039c364ea29892b07ee474d, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 5
+  Experience: 200

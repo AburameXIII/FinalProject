@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExerciseName: Bicep Curls
   ObjectiveType: 1
-  PossibleMeasuringMethod: 00000000020000000400000003000000
-  ExerciseType: 2
-  ObjectiveQuantity: 12
+  PossibleMeasuringMethod: 000000000200000003000000
+  ObjectiveQuantity: 8
   Pace: {x: 1, y: 3}
-  RestTime: 60
+  RestTime: 25
   RequiredEquipment: 00000000
   SmallExercisePreview: {fileID: 4440029972086862747, guid: 0f2d2353310713b429fd3b8afc682ba2,
     type: 3}

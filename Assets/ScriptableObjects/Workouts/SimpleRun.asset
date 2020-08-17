@@ -14,9 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkoutName: Simple Run
   Difficulty: 3
-  EstimatedDuration: 20
+  EstimatedDuration: 18
   Exercises:
-  - {fileID: 11400000, guid: ed2e59e071435494bbcdbcbd870f6e29, type: 2}
-  - {fileID: 11400000, guid: 71de5a0c7da986d41aac8b0bdfe0053e, type: 2}
-  - {fileID: 11400000, guid: ed2e59e071435494bbcdbcbd870f6e29, type: 2}
-  Experience: 500
+  - Exercise: {fileID: 11400000, guid: ed2e59e071435494bbcdbcbd870f6e29, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 300
+    Pace: {x: 0, y: 0}
+    RestTime: 0
+  - Exercise: {fileID: 11400000, guid: 71de5a0c7da986d41aac8b0bdfe0053e, type: 2}
+    ObjectiveType: 2
+    ObjectiveQuantity: 1
+    Pace: {x: 3, y: 1}
+    RestTime: 0
+  - Exercise: {fileID: 11400000, guid: ed2e59e071435494bbcdbcbd870f6e29, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 300
+    Pace: {x: 0, y: 0}
+    RestTime: 0
+  Experience: 400

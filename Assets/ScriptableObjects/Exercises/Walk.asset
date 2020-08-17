@@ -13,14 +13,8 @@ MonoBehaviour:
   m_Name: Walk
   m_EditorClassIdentifier: 
   ExerciseName: Walk
-  ObjectiveType: 0
-  PossibleMeasuringMethod: 0000000004000000
-  ExerciseType: 1
-  ObjectiveQuantity: 300
-  Pace: {x: 12, y: 0}
-  RestTime: 0
   RequiredEquipment: 01000000
-  SmallExercisePreview: {fileID: 4440029972086862747, guid: 0f2d2353310713b429fd3b8afc682ba2,
+  SmallExercisePreview: {fileID: 4440029972086862747, guid: cff8a5e769420604fb5eca987c3ed7c6,
     type: 3}
-  ExercisePreview: {fileID: 4440029972086862747, guid: 0f2d2353310713b429fd3b8afc682ba2,
+  ExercisePreview: {fileID: 4440029972086862747, guid: cff8a5e769420604fb5eca987c3ed7c6,
     type: 3}

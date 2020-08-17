@@ -13,10 +13,10 @@ public class ExerciseContainer : MonoBehaviour
 
 
 
-    public void UpdateExercise(Exercise e, MeasuringMethod m)
+    public void UpdateExercise(ExerciseDetail ed, MeasuringMethod m)
     {
-        ExerciseName.text = e.ExerciseName;
-        ExerciseAmount.text = e.GetObjective();
+        ExerciseName.text = ed.Exercise.ExerciseName;
+        ExerciseAmount.text = ed.GetObjective();
 
         switch (m)
         {
@@ -24,7 +24,7 @@ public class ExerciseContainer : MonoBehaviour
                 ExercisePace.text = "GPS";
                 break;
             case MeasuringMethod.Pace:
-                ExercisePace.text = "Constant Pace " + e.Pace.x + " : " + e.Pace.y;
+                ExercisePace.text = "Constant Pace " + ed.Pace.x + " : " + ed.Pace.y;
                 break;
             case MeasuringMethod.Step:
                 ExercisePace.text = "Step Counter";
@@ -37,7 +37,7 @@ public class ExerciseContainer : MonoBehaviour
                 break;
         }
 
-        Instantiate(e.SmallExercisePreview, ExercisePreview);
+        Instantiate(ed.Exercise.SmallExercisePreview, ExercisePreview);
 
     }
 }

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90712b195037ed4590bf8faa364536b, type: 3}
+  m_Name: Run
+  m_EditorClassIdentifier: 
+  WorkoutName: Simple Run
+  Difficulty: 3
+  EstimatedDuration: 30
+  Exercises:
+  - Exercise: {fileID: 11400000, guid: ed2e59e071435494bbcdbcbd870f6e29, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 300
+    Pace: {x: 0, y: 0}
+    RestTime: 0
+  - Exercise: {fileID: 11400000, guid: 71de5a0c7da986d41aac8b0bdfe0053e, type: 2}
+    ObjectiveType: 2
+    ObjectiveQuantity: 3
+    Pace: {x: 3, y: 1}
+    RestTime: 0
+  - Exercise: {fileID: 11400000, guid: ed2e59e071435494bbcdbcbd870f6e29, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 300
+    Pace: {x: 0, y: 0}
+    RestTime: 0
+  Experience: 400

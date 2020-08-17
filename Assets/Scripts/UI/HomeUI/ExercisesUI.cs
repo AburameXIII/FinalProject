@@ -42,20 +42,23 @@ public class ExercisesUI : MonoBehaviour
 
         UIManager.ChosenMeasuringMethods.Clear();
 
-        foreach (Exercise e in w.Exercises)
+        for(int i =0; i< w.Exercises.Count; i++)
         {
-                var newExerciseUI = Instantiate(ExercisePrefab, Vector3.zero, Quaternion.identity);
-                newExerciseUI.transform.SetParent(ExerciseContainer.transform, false);
-                newExerciseUI.transform.localPosition = new Vector3(0, Y, 0);
+            GameObject newExerciseUI = Instantiate(ExercisePrefab, Vector3.zero , Quaternion.identity, ExerciseContainer.transform);
+            //newExerciseUI.transform.SetParent(, false);
+            newExerciseUI.transform.localPosition = new Vector3(0, Y, 0);
+            ExerciseDetail ed = w.Exercises[i];
 
-                MeasuringMethod m = e.PossibleMeasuringMethod[e.PossibleMeasuringMethod.Count - 1];
+            //CHANGE THIS, AS OF NOW, SELECTS LAST MEASURING METHOD AS DEFAULT
+            List<MeasuringMethod> lm = ed.GetPossibleMeasuringMethods();
+            MeasuringMethod m = lm[lm.Count - 1];
 
-                newExerciseUI.GetComponent<ExerciseContainer>().UpdateExercise(e, m);
+            newExerciseUI.GetComponent<ExerciseContainer>().UpdateExercise(ed, m);
 
-                UIManager.ChosenMeasuringMethods.Add(m);
-                Exercises.Add(newExerciseUI);
-                Y -= YDistance;
-                count++;
+            UIManager.ChosenMeasuringMethods.Add(m);
+            Exercises.Add(newExerciseUI);
+            Y -= YDistance;
+            count++;
         }
 
         ExerciseContainer.sizeDelta = new Vector2(ExerciseContainer.sizeDelta.x, count * YDistance + 50);

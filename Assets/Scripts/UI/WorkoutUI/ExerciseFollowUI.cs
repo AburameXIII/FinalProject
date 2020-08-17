@@ -13,7 +13,7 @@ public class ExerciseFollowUI : MonoBehaviour
 
     public Text ExerciseNameText;
 
-    public Exercise e;
+    public ExerciseDetail e;
     private Color Color;
 
     public Bar HorizontalBar;
@@ -45,11 +45,11 @@ public class ExerciseFollowUI : MonoBehaviour
         Amount.gameObject.SetActive(false);
 
         e =  UIManager.CurrentWorkout.Exercises[ExerciseNumber];
-        ExerciseNameText.text = e.ExerciseName;
+        ExerciseNameText.text = e.Exercise.ExerciseName;
 
 
         if (ExercisePreview != null) Destroy(ExercisePreview);
-        ExercisePreview = Instantiate(e.ExercisePreview, ExercisePosition);
+        ExercisePreview = Instantiate(e.Exercise.ExercisePreview, ExercisePosition);
 
 
         if(ExerciseNumber == 0)

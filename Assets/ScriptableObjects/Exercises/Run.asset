@@ -13,14 +13,8 @@ MonoBehaviour:
   m_Name: Run
   m_EditorClassIdentifier: 
   ExerciseName: Run
-  ObjectiveType: 2
-  PossibleMeasuringMethod: 00000000020000000300000001000000
-  ExerciseType: 0
-  ObjectiveQuantity: 30
-  Pace: {x: 9, y: 0}
-  RestTime: 0
   RequiredEquipment: 01000000
-  SmallExercisePreview: {fileID: 4440029972086862747, guid: 0f2d2353310713b429fd3b8afc682ba2,
+  SmallExercisePreview: {fileID: 4440029972086862747, guid: cff8a5e769420604fb5eca987c3ed7c6,
     type: 3}
-  ExercisePreview: {fileID: 4440029972086862747, guid: 0f2d2353310713b429fd3b8afc682ba2,
+  ExercisePreview: {fileID: 4440029972086862747, guid: cff8a5e769420604fb5eca987c3ed7c6,
     type: 3}
