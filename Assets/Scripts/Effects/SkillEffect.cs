@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//public enum EffectType { BeforeActionSelection, AfterActionSelection, Persitant, AfterActionCompletion}
-public enum Effect { AttackUp, Poison, Paralyze}
-
 public abstract class SkillEffect
 {
-    //public Effect Effect;
     public bool Stackable;
-    public int TurnDuration;
-    public Effect Effect;
+    protected int TurnDuration;
 
 
-    public void DecreaseDuration()
+    public bool DecreaseDuration()
     {
         TurnDuration--;
+        return TurnDuration <= 0;
     }
 
 
@@ -23,11 +19,11 @@ public abstract class SkillEffect
     {
         SkillEffect otherSkillEffect = other as SkillEffect;
         if (otherSkillEffect == null) return false;
-        else return otherSkillEffect.Effect.Equals(Effect);
+        else return otherSkillEffect.GetType().Equals(GetType());
     }
 
     public override int GetHashCode()
     {
-        return Effect.GetHashCode();
+        return GetType().GetHashCode();
     }
 }

@@ -10,9 +10,11 @@ public class Paralyze : ActionSelectionEffect
         return UnityEngine.Random.value < 0.5f;
     }
 
-    public Paralyze()
+    public Paralyze() : this(3) { }
+
+    public Paralyze(int Turns)
     {
-        Effect = Effect.Paralyze;
         Stackable = false;
+        TurnDuration = Turns;
     }
 }

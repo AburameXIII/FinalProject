@@ -9,7 +9,7 @@ public class Constrict : EnemySkill
     {
         foreach (Unit t in Targets)
         {
-            t.AddAfterActionSelectionEffect(new Paralyze());
+            t.AddAfterActionSelectionEffect(new Paralyze(3));
         }
     }
 

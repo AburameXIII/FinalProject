@@ -6,11 +6,11 @@ public class IncreaseAttack : PersitantEffect
 {
     private StatModifier AttackModifier;
 
-    public IncreaseAttack(float Percentage)
+    public IncreaseAttack(float Percentage, int Turns)
     {
         AttackModifier = new StatModifier(Percentage, StatModType.Percentage);
-        Effect = Effect.AttackUp;
         Stackable = true;
+        TurnDuration = Turns;
     }
 
     public override void PerformEffect(Unit u)

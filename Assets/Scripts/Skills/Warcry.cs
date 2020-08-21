@@ -11,7 +11,7 @@ public class Warcry : Skill
     {
         AttackModifierPercentage = 0.1f;
         SkillName = "Warcry";
-        SkillDescription = "Increases allies attack by 10% and generates 40 RG";
+        SkillDescription = "Increases allies attack by 10% for 4 turns and generates 40 RG";
         SkillImage = Sprite;
     }
 
@@ -29,7 +29,7 @@ public class Warcry : Skill
         foreach (Unit u in CombatManager.Instance.Characters)
         {
             //u.TakeDamage(100);
-            u.AddPersistantEffect(new IncreaseAttack(AttackModifierPercentage));
+            u.AddPersistantEffect(new IncreaseAttack(AttackModifierPercentage, 4));
         }
         User.ChangeSecondary(40);
     }
@@ -39,7 +39,6 @@ public class Warcry : Skill
     {
         //DO ANIMATIONS
        
-        Debug.Log("performing Warcry");
         yield return new WaitForSeconds(1.0f);
 
         //IN THE ANIMATION CALL Perform() as alternative

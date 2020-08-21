@@ -43,16 +43,16 @@ public class CombatManager : MonoBehaviour
     public Sprite ParalyzeIcon;
     public Sprite AttackUpIcon;
 
-    public Sprite  GetEffectIcon(Effect e)
+    public Sprite  GetEffectIcon(object effect)
     {
         
-        switch (e)
+        switch (effect)
         {
-            case Effect.AttackUp:
+            case IncreaseAttack ia:
                 return AttackUpIcon;
-            case Effect.Paralyze:
+            case Paralyze par:
                 return ParalyzeIcon;
-            case Effect.Poison:
+            case Poison poi:
                 return PoisonIcon;
             default:
                 return null;
@@ -319,7 +319,6 @@ public class CombatManager : MonoBehaviour
         int count = 0;
         foreach (int i in TurnsToRemove)
         {
-            Debug.Log("removed turn " + (i - count));
             Turns.RemoveAt(i - count);
             CalculateTurns(1);
             TurnsUI.Discard(i - count, Turns[Turns.Count - 1]);

@@ -101,7 +101,6 @@ public class Bar : MonoBehaviour, IWorkoutObjective
         TargetValue = Max;
         InitialValue = 0;
         CurrentValue = 0;
-        Debug.Log("Setting up Current Value to 0: " + CurrentValue);
         LerpValueBar.fillAmount = 0;
         LerpDuration = Max;
     }
@@ -112,7 +111,6 @@ public class Bar : MonoBehaviour, IWorkoutObjective
 
         startLerp = Time.time;
         lerpNow = true;
-        Debug.Log("Starting measuring: " + CurrentValue);
     }
 
 

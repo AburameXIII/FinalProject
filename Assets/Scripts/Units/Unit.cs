@@ -13,6 +13,7 @@ public enum UnitType
     Friendly, Enemy, Neutral
 }
 
+/*
 [Serializable]
 public class Pair<T, U>
 {
@@ -29,7 +30,7 @@ public class Pair<T, U>
     public T First { get; set; }
     public U Second { get; set; }
 };
-
+*/
 
 
 
@@ -66,20 +67,16 @@ public abstract class Unit : MonoBehaviour
 
     public GameObject DamageTextPrefab;
 
-    protected List<Pair<ActionSelectionEffect,int>> BeforeActionSelectionEffects;
-    protected List<Pair<ActionSelectionEffect,int>> AfterActionSelectionEffects;
-    protected List<Pair<PersitantEffect,int>> PersitantEffects;
-    protected List<Pair<EndOfTurnEffect,int>> EndOfTurnEffects;
+    protected List<ActionSelectionEffect> BeforeActionSelectionEffects;
+    protected List<ActionSelectionEffect> AfterActionSelectionEffects;
+    protected List<PersitantEffect> PersitantEffects;
+    protected List<EndOfTurnEffect> EndOfTurnEffects;
 
 
     public void TakeDamage(float MinAttackMultiplier, float MaxAttackMultiplier, Unit AttackUnit)
     {
         float AttackMultiplier = UnityEngine.Random.Range(MinAttackMultiplier, MaxAttackMultiplier);
         int Damage = Mathf.RoundToInt( AttackUnit.Attack.Value * AttackMultiplier * (1 - CombatManager.Instance.DefenseResistanceCurve.Evaluate(this.Defense.Value/999f)));
-
-
-
-        
 
         float CriticalChance = CombatManager.Instance.LuckCriticalCurve.Evaluate(AttackUnit.Luck.Value/999f);
         float Chance = UnityEngine.Random.Range(0f, 1f);
@@ -131,7 +128,7 @@ public abstract class Unit : MonoBehaviour
     {
         if (!e.Stackable && BattleHUD.HasEffect(e)) return;
 
-        PersitantEffects.Add(new Pair<PersitantEffect, int>(e,e.TurnDuration));
+        PersitantEffects.Add(e);
         BattleHUD.AddEffect(e);
         e.PerformEffect(this);
     }
@@ -140,7 +137,7 @@ public abstract class Unit : MonoBehaviour
     {
         if (!e.Stackable && BattleHUD.HasEffect(e)) return;
 
-        EndOfTurnEffects.Add(new Pair<EndOfTurnEffect, int>(e, e.TurnDuration));
+        EndOfTurnEffects.Add(e);
         BattleHUD.AddEffect(e);
     }
 
@@ -148,60 +145,59 @@ public abstract class Unit : MonoBehaviour
     {
         if (!e.Stackable && BattleHUD.HasEffect(e)) return;
 
-        AfterActionSelectionEffects.Add(new Pair<ActionSelectionEffect, int>(e, e.TurnDuration));
+        AfterActionSelectionEffects.Add(e);
         BattleHUD.AddEffect(e);
     }
 
     IEnumerator EndOfTurnRoutine()
     {
 
-        foreach(Pair<EndOfTurnEffect,int> p in EndOfTurnEffects)
+        foreach(EndOfTurnEffect e in EndOfTurnEffects)
         {
             yield return new WaitForSeconds(0.2f);
-            p.First.PerformEffect(this);
+            e.PerformEffect(this);
         }
         
-        EndOfTurnEffects.RemoveAll(delegate (Pair<EndOfTurnEffect, int> p)
+        for(int i = EndOfTurnEffects.Count - 1; i >= 0; i--)
         {
-            if (--p.Second == 0)
+            if (EndOfTurnEffects[i].DecreaseDuration())
             {
-                BattleHUD.RemoveEffect(p.First);
-                return true;
+                BattleHUD.RemoveEffect(EndOfTurnEffects[i]);
+                EndOfTurnEffects.RemoveAt(i);
+                
             }
-            return false;
-        });
+        }
 
-        PersitantEffects.RemoveAll(delegate (Pair<PersitantEffect, int> p)
+        for (int i = PersitantEffects.Count - 1; i >= 0; i--)
         {
-            if (--p.Second == 0)
+            if (PersitantEffects[i].DecreaseDuration())
             {
-                p.First.UndoEffect(this);
-                BattleHUD.RemoveEffect(p.First);
-                return true;
+                PersitantEffects[i].UndoEffect(this);
+                
+                BattleHUD.RemoveEffect(PersitantEffects[i]);
+                PersitantEffects.RemoveAt(i);
             }
-            return false;
-        });
+        }
 
-        BeforeActionSelectionEffects.RemoveAll(delegate (Pair<ActionSelectionEffect, int> p)
+        for (int i = BeforeActionSelectionEffects.Count - 1; i >= 0; i--)
         {
-            if (--p.Second == 0)
+            if (BeforeActionSelectionEffects[i].DecreaseDuration())
             {
-                BattleHUD.RemoveEffect(p.First);
-                return true;
+                
+                BattleHUD.RemoveEffect(BeforeActionSelectionEffects[i]);
+                BeforeActionSelectionEffects.RemoveAt(i);
             }
-            return false;
-        });
+        }
 
-
-        AfterActionSelectionEffects.RemoveAll(delegate (Pair<ActionSelectionEffect, int> p)
+        for (int i = AfterActionSelectionEffects.Count - 1; i >= 0; i--)
         {
-            if (--p.Second == 0)
+            if (AfterActionSelectionEffects[i].DecreaseDuration())
             {
-                BattleHUD.RemoveEffect(p.First);
-                return true;
+                
+                BattleHUD.RemoveEffect(AfterActionSelectionEffects[i]);
+                AfterActionSelectionEffects.RemoveAt(i);
             }
-            return false;
-        });
+        }
 
         CombatManager.Instance.CheckDeaths();
     }
@@ -214,23 +210,20 @@ public abstract class Unit : MonoBehaviour
 
     protected virtual void Awake()
     {
-        BeforeActionSelectionEffects = new List<Pair<ActionSelectionEffect, int>>();
-        AfterActionSelectionEffects = new List<Pair<ActionSelectionEffect, int>>();
-        PersitantEffects = new List<Pair<PersitantEffect, int>>();
-        EndOfTurnEffects = new List<Pair<EndOfTurnEffect, int>>();
+        BeforeActionSelectionEffects = new List<ActionSelectionEffect>();
+        AfterActionSelectionEffects = new List<ActionSelectionEffect>();
+        PersitantEffects = new List<PersitantEffect>();
+        EndOfTurnEffects = new List<EndOfTurnEffect>();
 
-
-
-        Debug.Log("AWAKE " + UnitName);
         BattleHUD = Instantiate(BattleHUDPrefab, this.transform).GetComponent<BattleHUD>();
         BattleHUD.Setup(this);
     }
 
     public void PerformSkill(Skill s)
     {
-        foreach (Pair<ActionSelectionEffect, int> e in AfterActionSelectionEffects)
+        foreach (ActionSelectionEffect e in AfterActionSelectionEffects)
         {
-            if (e.First.PerformEffect(this))
+            if (e.PerformEffect(this))
             {
                 //DID NOT PERFORM SKILL
                 EndOfTurn();
