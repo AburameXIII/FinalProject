@@ -16,7 +16,7 @@ public class WorkoutContainer : MonoBehaviour
     private Workout Workout;
     private Character Character;
 
-    public void UpdateWorkout(Character c, WorkoutUnlock w)
+    public bool UpdateWorkout(Character c, WorkoutUnlock w)
     {
         CharacterPicture.sprite = c.CharacterProfilePicture;
         WorkoutName.text = w.Workout.WorkoutName;
@@ -43,5 +43,7 @@ public class WorkoutContainer : MonoBehaviour
 
         Workout = w.Workout;
         Character = c;
+
+        return Locked.activeSelf;
     }
 }

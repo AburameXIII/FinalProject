@@ -16,7 +16,7 @@ public class WorkoutCompletedUI : MonoBehaviour
         {
             ProgressionAnimated PA = Instantiate(CharacterEXPGainPrefab, SpawnStart.position, Quaternion.identity, this.transform).GetComponent<ProgressionAnimated>();
             PA.SetProgression(c, PartyManager.Instance.GetTrainProgression(c), c.CharacterPrimaryColor);
-            SpawnStart.position -= new Vector3(0, 500, 0);
+            SpawnStart.position -= new Vector3(0, 400, 0);
         }
 
         ContinueButton.onClick.AddListener(delegate { UIManager.Instance.FinishWorkout(); });

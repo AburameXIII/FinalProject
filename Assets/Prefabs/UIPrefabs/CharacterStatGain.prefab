@@ -609,6 +609,7 @@ MonoBehaviour:
   CharacterName: {fileID: 4321600853512670413}
   Unlockable: {fileID: 4321600853010158319}
   ExpGained: {fileID: 4321600853827009858}
+  CharacterImage: {fileID: 4321600852059449068}
 --- !u!1 &4321600853290195802
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,9 @@ public class Hui : EnemyUnit
     {
         Stage = HuiStage.Flying;
 
+        MaxHP = 200;
+        CurrentHP = 200;
+
         Speed = new Stat(20);
         Defense = new Stat(20);
         Attack = new Stat(20);

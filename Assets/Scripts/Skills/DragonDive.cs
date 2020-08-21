@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class TapPunch : Skill
+public class DragonDive : Skill
 {
     public float MinAttackMultiplier;
     public float MaxAttackMultiplier;
 
-    public TapPunch(Unit User, Sprite Sprite): base(User)
+    public DragonDive(Unit User, Sprite Sprite): base(User)
     {
-        MinAttackMultiplier = 0.4f;
-        MaxAttackMultiplier = 0.5f;
-        SkillName = "Tap Punch";
-        SkillDescription = "Punches a single enemy and regenerates 10 RG";
+        MinAttackMultiplier = 1.8f;
+        MaxAttackMultiplier = 2.0f;
+        SkillName = "Dragon Dive";
+        SkillDescription = "Fully dives into all enemies dealing high damage proportional to the number of combos accumulated.";
         SkillImage = Sprite;
     }
 
     public override bool CanPerform()
     {
         //CHECK LEVEL;
-        return true;
+        return User.CurrentSecondaryResource > 1;
     }
 
    
@@ -29,9 +29,9 @@ public class TapPunch : Skill
     {
         foreach (Unit t in Targets)
         {
-            t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, User);
+            t.TakeDamage(MinAttackMultiplier * User.CurrentSecondaryResource, MaxAttackMultiplier * User.CurrentSecondaryResource, User);
         }
-        User.ChangeSecondary(10);
+        User.ChangeSecondary(-User.CurrentSecondaryResource);
     }
 
 

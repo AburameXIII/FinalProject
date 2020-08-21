@@ -23,10 +23,15 @@ public class BattleHUD : MonoBehaviour
     {
         EffectCount = new Dictionary<SkillEffect, EffectUI>();
         Effects = new List<EffectUI>();
-        SecondaryColors = new Dictionary<SecondaryResourceType, Color>();
-        SecondaryColors.Add(SecondaryResourceType.MP, new Color(0.1176f, 0.6069f, 0.7450f));
-        SecondaryColors.Add(SecondaryResourceType.RG, new Color(0.7450f, 0.5725f, 0.1176f));
-        SecondaryColors.Add(SecondaryResourceType.PS, new Color(0.4070f, 0.2306f, 0.5094f));
+        if(SecondaryColors == null)
+        {
+            SecondaryColors = new Dictionary<SecondaryResourceType, Color>();
+            SecondaryColors.Add(SecondaryResourceType.MP, new Color(0.1176f, 0.6069f, 0.7450f));
+            SecondaryColors.Add(SecondaryResourceType.RG, new Color(0.7450f, 0.5725f, 0.1176f));
+            SecondaryColors.Add(SecondaryResourceType.PS, new Color(0.4070f, 0.2306f, 0.5094f));
+            SecondaryColors.Add(SecondaryResourceType.COMBO, new Color(0.2f, 0.67f, 0.72f));
+        }
+        
     }
 
 
@@ -49,7 +54,7 @@ public class BattleHUD : MonoBehaviour
         if (HealthBar) HealthBar.ChangeCurrentValue(CurrentValue);
     }
 
-    public void ChangeSecondary(int CurrentValue)
+    public virtual void ChangeSecondary(int CurrentValue)
     {
         if (SecondaryBar) SecondaryBar.ChangeCurrentValue(CurrentValue);
     }

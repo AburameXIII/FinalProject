@@ -3,41 +3,39 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class TapPunch : Skill
+public class BattleLitany : Skill
 {
-    public float MinAttackMultiplier;
-    public float MaxAttackMultiplier;
+    private float LuckModifierPercentage;
 
-    public TapPunch(Unit User, Sprite Sprite): base(User)
+    public BattleLitany(Unit User, Sprite Sprite) : base(User)
     {
-        MinAttackMultiplier = 0.4f;
-        MaxAttackMultiplier = 0.5f;
-        SkillName = "Tap Punch";
-        SkillDescription = "Punches a single enemy and regenerates 10 RG";
+        LuckModifierPercentage = 0.1f;
+        SkillName = "Battle Litany";
+        SkillDescription = "Increases allies luck by 10% for each Combo Point for 4 turns";
         SkillImage = Sprite;
     }
+
 
     public override bool CanPerform()
     {
         //CHECK LEVEL;
-        return true;
+        return User.CurrentSecondaryResource > 0;
     }
 
-   
+    
 
     public override void Perform()
     {
-        foreach (Unit t in Targets)
+        foreach (Unit u in CombatManager.Instance.Characters)
         {
-            t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, User);
+            //u.TakeDamage(100);
+            u.AddPersistantEffect(new IncreaseLuck(LuckModifierPercentage * User.CurrentSecondaryResource, 4));
         }
-        User.ChangeSecondary(10);
     }
 
 
     public override IEnumerator Performing()
     {
-        Targets = CombatManager.Instance.Enemies;
         //DO ANIMATIONS
        
         yield return new WaitForSeconds(1.0f);

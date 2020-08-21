@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum SecondaryResourceType
 {
-    MP, RG, PS
+    MP, RG, PS, COMBO
 }
 
 public enum UnitType
@@ -38,19 +38,28 @@ public abstract class Unit : MonoBehaviour
 {
     public string UnitName;
 
+    [HideInInspector]
     public int MaxHP;
+    [HideInInspector]
     public int CurrentHP;
 
     [HideInInspector]
     public UnitType UnitType;
 
+    [HideInInspector]
     public int MaxSecondaryResource;
+    [HideInInspector]
     public int CurrentSecondaryResource;
+    [HideInInspector]
     public SecondaryResourceType SecondaryResource;
 
+    [HideInInspector]
     public Stat Speed;
+    [HideInInspector]
     public Stat Defense;
+    [HideInInspector]
     public Stat Attack;
+    [HideInInspector]
     public Stat Luck;
 
     //CHANGE WAY OF CALCULATING TURNS

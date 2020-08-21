@@ -32,10 +32,16 @@ public class WorkoutUI : MonoBehaviour
                 var newWorkoutUI = Instantiate(WorkoutPrefab, Vector3.zero, Quaternion.identity);
                 newWorkoutUI.transform.SetParent(WorkoutContainer.transform, false);
                 newWorkoutUI.transform.localPosition = new Vector3(0, Y, 0);
-                newWorkoutUI.GetComponent<WorkoutContainer>().UpdateWorkout(c,w);
+                
 
                 Y -= YDistance;
                 count++;
+
+                //If the rest of the workouts are locked, then skip the rest and go to the next character
+                if(newWorkoutUI.GetComponent<WorkoutContainer>().UpdateWorkout(c, w))
+                {
+                    break;
+                }
             }
         }
 

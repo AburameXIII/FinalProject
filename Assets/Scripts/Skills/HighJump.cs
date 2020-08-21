@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class TapPunch : Skill
+public class HighJump : Skill
 {
     public float MinAttackMultiplier;
     public float MaxAttackMultiplier;
 
-    public TapPunch(Unit User, Sprite Sprite): base(User)
+    public HighJump(Unit User, Sprite Sprite): base(User)
     {
-        MinAttackMultiplier = 0.4f;
-        MaxAttackMultiplier = 0.5f;
-        SkillName = "Tap Punch";
-        SkillDescription = "Punches a single enemy and regenerates 10 RG";
+        MinAttackMultiplier = 1.0f;
+        MaxAttackMultiplier = 1.2f;
+        SkillName = "High Jump";
+        SkillDescription = "Jumps higher and deals a good amount of damage to a single target";
         SkillImage = Sprite;
     }
 
     public override bool CanPerform()
     {
         //CHECK LEVEL;
-        return true;
+        return User.CurrentSecondaryResource >= 1;
     }
 
    
@@ -31,7 +31,7 @@ public class TapPunch : Skill
         {
             t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, User);
         }
-        User.ChangeSecondary(10);
+        User.ChangeSecondary(1);
     }
 
 

@@ -23,12 +23,14 @@ public class ProgressionAnimated : MonoBehaviour
     public Text CharacterName;
     public GameObject Unlockable;
     public Text ExpGained;
+    public Image CharacterImage;
 
     public void SetProgression(Character c, Progression p, Color cl)
     {
         Progression = p;
         CharacterName.text = c.CharacterName;
         ExperienceBar.SetColor(cl);
+        CharacterImage.sprite = c.CharacterProfilePicture;
 
         Level = Progression.GetLevel();
         Experience = Progression.GetExperience();

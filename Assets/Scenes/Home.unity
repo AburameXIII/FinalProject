@@ -5858,8 +5858,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Party:
   - {fileID: 11400000, guid: 682b2fc4948442c4a9e440bc5a837f13, type: 2}
+  - {fileID: 11400000, guid: 85f6c8af2baae87438d8de63130cc553, type: 2}
   AllCharacters:
   - {fileID: 11400000, guid: 682b2fc4948442c4a9e440bc5a837f13, type: 2}
+  - {fileID: 11400000, guid: 85f6c8af2baae87438d8de63130cc553, type: 2}
 --- !u!4 &1671055018
 Transform:
   m_ObjectHideFlags: 0

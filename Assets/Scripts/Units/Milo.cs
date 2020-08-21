@@ -30,7 +30,7 @@ public class Milo : CharacterUnit
         Attack = new Stat(MiloCharacter.Attack[Level - 1]);
         Luck = new Stat(MiloCharacter.Luck[Level - 1]);
 
-        TurnSprite = MiloCharacter.CharacterProfilePicture;
+        TurnSprite = MiloCharacter.CharacterTurnPicture;
 
         
 

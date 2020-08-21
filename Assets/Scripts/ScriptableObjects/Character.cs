@@ -8,6 +8,7 @@ public class Character : ScriptableObject
 {
     public string CharacterName;
     public Sprite CharacterProfilePicture;
+    public Sprite CharacterTurnPicture;
     public List<WorkoutUnlock> WorkoutUnlocks;
     public Color CharacterPrimaryColor;
     public Color CharacterSecondaryColor;
