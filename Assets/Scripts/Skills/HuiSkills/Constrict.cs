@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class Constrict : EnemySkill
 {
-    public Paralyze Paralyze;
 
     public override void Perform()
     {
         foreach (Unit t in Targets)
         {
-            t.AddAfterActionSelectionEffect(Paralyze);
+            t.AddAfterActionSelectionEffect(new Paralyze());
         }
+    }
+
+    public Constrict(Unit User): base(User)
+    {
+        SkillName = "Constrict";
     }
 
     public override IEnumerator Performing()
     {
+        Targets = new List<Unit>() { CombatManager.Instance.Characters[Random.Range(0, CombatManager.Instance.Characters.Count)] };
+
         yield return new WaitForSeconds(0.5f);
 
         Perform();
 
         //Go to end of turn actions
-        u.EndOfTurn();
+        User.EndOfTurn();
     }
 
-    public override void PerformSkill()
-    {
-        //Chooses random target
-        PerformSkill(new List<Unit>() { CombatManager.Instance.Characters[Random.Range(0,CombatManager.Instance.Characters.Count)] });
-    }
 
-    public override void PerformSkill(List<Unit> Targets)
-    {
-        this.Targets = Targets;
-        StartCoroutine(Performing());
-    }
 }

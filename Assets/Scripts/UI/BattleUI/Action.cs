@@ -11,19 +11,19 @@ public class Action : Button
     public Text SkillDescription;
     public Image SkillImage;
 
-    public void SetSkill(ICharacter c, Skill s, int i)
+    public void SetSkill(Unit c, Skill s)
     {
         if(s != null)
         {
             interactable = s.CanPerform();
             SkillName.text = s.SkillName;
-            SkillImage.sprite = s.ImageSkill;
+            SkillImage.sprite = s.SkillImage;
             SkillDescription.text = s.SkillDescription;
             onClick.RemoveAllListeners();
             onClick.AddListener(delegate {
                 CombatManager.Instance.Actions.Disappear();
                 CombatManager.Instance.PerformingAction();
-                c.PerformSkill(i, CombatManager.Instance.Enemies);
+                c.PerformSkill(s);
             });
         } else {
             interactable = false;

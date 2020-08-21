@@ -2,8 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICharacter
+
+public abstract class CharacterUnit : Unit
 {
-    List<Skill> GetSkills();
-    void PerformSkill(int SkillNumber, List<Unit> Targets);
+    public  List<Skill> Skills;
+    
+
+    public List<Skill> GetSkills()
+    {
+        return Skills;
+    }
+
+    protected override void Awake()
+    {
+        UnitType = UnitType.Friendly;
+        Skills = new List<Skill>();
+        base.Awake();
+    }
 }

@@ -16,7 +16,54 @@ MonoBehaviour:
   Difficulty: 2
   EstimatedDuration: 20
   Exercises:
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+  - Exercise: {fileID: 11400000, guid: a2cada793b91d4344986e24d46717731, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 5
+  - Exercise: {fileID: 11400000, guid: b2a9a1823165e4b40b58228044114bf0, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 10
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 8
+    Pace: {x: 2, y: 2}
+    RestTime: 30
   Experience: 400

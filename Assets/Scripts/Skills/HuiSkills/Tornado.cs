@@ -5,18 +5,28 @@ using UnityEngine;
 public class Tornado : EnemySkill
 {
 
-    public float MinAttackMultiplier;
-    public float MaxAttackMultiplier;
+    private float MinAttackMultiplier;
+    private float MaxAttackMultiplier;
     public override void Perform()
     {
         foreach (Unit t in Targets)
         {
-            t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, u);
+            t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, User);
         }
+    }
+
+    public Tornado(Unit User) : base(User)
+    {
+        MinAttackMultiplier = 0.3f;
+        MaxAttackMultiplier = 0.4f;
+        SkillName = "Tornado";
     }
 
     public override IEnumerator Performing()
     {
+        Targets = CombatManager.Instance.Characters;
+
+
         yield return new WaitForSeconds(0.5f);
 
         
@@ -28,19 +38,10 @@ public class Tornado : EnemySkill
         }
 
         //Go to end of turn actions
-        u.EndOfTurn();
+        User.EndOfTurn();
     }
 
-    public override void PerformSkill()
-    {
-        PerformSkill(CombatManager.Instance.Characters);
-    }
 
-    public override void PerformSkill(List<Unit> Targets)
-    {
-        this.Targets = Targets;
-        StartCoroutine(Performing());
-    }
 
     
 }

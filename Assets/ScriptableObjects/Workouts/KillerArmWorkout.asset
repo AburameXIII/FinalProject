@@ -16,14 +16,54 @@ MonoBehaviour:
   Difficulty: 4
   EstimatedDuration: 30
   Exercises:
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 1
+    ObjectiveQuantity: 12
+    Pace: {x: 2, y: 2}
+    RestTime: 30
   Experience: 1000

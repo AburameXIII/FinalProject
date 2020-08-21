@@ -6,33 +6,40 @@ using UnityEngine;
 public class SuperPunch : Skill
 {
 
-    public float MinAttackMultiplier;
-    public float MaxAttackMultiplier;
+    private float MinAttackMultiplier;
+    private float MaxAttackMultiplier;
+
+    public SuperPunch(Unit User, Sprite Sprite) : base(User)
+    {
+        MinAttackMultiplier = 1.2f;
+        MaxAttackMultiplier = 1.3f;
+        SkillName = "Super Punch";
+        SkillDescription = "Consumes 100 RG to deal massive damage to a single unit";
+        SkillImage = Sprite;
+    }
 
     public override bool CanPerform()
     {
         //CHECK LEVEL;
-         return u.CurrentSecondaryResource >= 100;
+         return User.CurrentSecondaryResource >= 100;
     }
 
-    public override void PerformSkill(List<Unit> Targets)
-    {
-        this.Targets = Targets;
-        StartCoroutine(Performing());
-    }
 
     public override void Perform()
     {
         foreach (Unit t in Targets)
         {
-            t.TakeDamage(MinAttackMultiplier,MaxAttackMultiplier, u);
+            t.TakeDamage(MinAttackMultiplier,MaxAttackMultiplier, User);
         }
-        u.ChangeSecondary(-100);
+        User.ChangeSecondary(-100);
     }
 
 
     public override IEnumerator Performing()
     {
+        //REPLACE BY A TARGET SYSTEM
+        Targets = CombatManager.Instance.Enemies;
+
         //DO ANIMATIONS
        
         Debug.Log("performing super punch");
@@ -42,6 +49,6 @@ public class SuperPunch : Skill
         Perform();
 
         //Go to end of turn actions
-        u.EndOfTurn();
+        User.EndOfTurn();
     }
 }

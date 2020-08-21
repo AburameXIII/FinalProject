@@ -38,8 +38,26 @@ public class CombatManager : MonoBehaviour
     public EndUI DefeatUI;
     public EndUI VictoryUI;
 
+    [Header("Effect Icons")]
+    public Sprite PoisonIcon;
+    public Sprite ParalyzeIcon;
+    public Sprite AttackUpIcon;
 
-
+    public Sprite  GetEffectIcon(Effect e)
+    {
+        
+        switch (e)
+        {
+            case Effect.AttackUp:
+                return AttackUpIcon;
+            case Effect.Paralyze:
+                return ParalyzeIcon;
+            case Effect.Poison:
+                return PoisonIcon;
+            default:
+                return null;
+        }
+    }
 
     public void Retry()
     {
@@ -166,14 +184,14 @@ public class CombatManager : MonoBehaviour
         switch (UnitChoosing.UnitType)
         {
             case UnitType.Enemy:
-                UnitChoosing.GetComponent<IEnemy>().PerformAction();
+                (UnitChoosing as EnemyUnit).PerformAction();
                 //Perform Action With COUROUTINE AND AT THE END PASS TURN
 
                 break;
 
             case UnitType.Friendly:
                 //UPDATE BUTTONS UI
-                Actions.Appear(Turns[0]);
+                Actions.Appear(Turns[0] as CharacterUnit);
                 break;
         }
 
@@ -204,7 +222,7 @@ public class CombatManager : MonoBehaviour
                 }
             }
 
-            NextTurns.OrderBy(o => o.CurrentSpeed);
+            NextTurns.OrderBy(o => o.Speed.Value);
             Unit UnitToAdd = NextTurns[0];
             UnitToAdd.ResetCurrentTimeToNextTurn();
             count++;

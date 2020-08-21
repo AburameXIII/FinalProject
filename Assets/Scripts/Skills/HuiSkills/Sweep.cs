@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoisonousSpit : EnemySkill
+public class Sweep: EnemySkill
 {
+    private float MinAttackMultiplier;
+    private float MaxAttackMultiplier;
     public override void Perform()
     {
         foreach (Unit t in Targets)
         {
-            t.AddEndOfTurnEffect(new Poison());
+            t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, User);
+            
         }
     }
 
-    public PoisonousSpit(Unit User) : base(User)
+    public Sweep(Unit User): base(User)
     {
-        SkillName = "Poisonous Spit";
+        MinAttackMultiplier = 0.7f;
+        MaxAttackMultiplier = 0.8f;
+        SkillName = "Sweep";
     }
+
 
     public override IEnumerator Performing()
     {
@@ -28,6 +34,5 @@ public class PoisonousSpit : EnemySkill
         //Go to end of turn actions
         User.EndOfTurn();
     }
-
 
 }

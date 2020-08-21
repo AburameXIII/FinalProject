@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum HuiStage { Psychic, Flying, Ground}
 
-public class Hui : Unit, IEnemy
+public class Hui : EnemyUnit
 {
     HuiStage Stage;
 
@@ -12,13 +12,30 @@ public class Hui : Unit, IEnemy
     public List<EnemySkill> FlyingSkills;
     public List<EnemySkill> GroundSkills;
 
-    void Start()
+    protected override void Awake()
     {
         Stage = HuiStage.Flying;
+
+        Speed = new Stat(20);
+        Defense = new Stat(20);
+        Attack = new Stat(20);
+        Luck = new Stat(20);
+
+        base.Awake();
+
+        FlyingSkills = new List<EnemySkill>();
+        GroundSkills = new List<EnemySkill>();
+        
+        FlyingSkills.Add(new Tornado(this));
+        FlyingSkills.Add(new PoisonousSpit(this));
+
+        GroundSkills.Add(new Sweep(this));
+        GroundSkills.Add(new Constrict(this));
+        GroundSkills.Add(new VenomousBite(this));
     }
 
 
-    public void PerformAction()
+    public override void PerformAction()
     {
         //CHANGE STAGE HERE
         if(CurrentHP < MaxHP / 2)
@@ -29,21 +46,21 @@ public class Hui : Unit, IEnemy
         switch (Stage)
         {
             case HuiStage.Psychic:
-                PsychicSkills[Random.Range(0, PsychicSkills.Count)].PerformSkill();
+                PerformSkill(PsychicSkills[Random.Range(0, PsychicSkills.Count)]);
                 //PsychicConstrict
                 //Hypnotize
                 //Confusion
                 break;
             case HuiStage.Flying:
-                FlyingSkills[Random.Range(0, FlyingSkills.Count)].PerformSkill();
-                //Hurricane
+                PerformSkill(FlyingSkills[Random.Range(0, FlyingSkills.Count)]);
+                //Tornado
                 //PoisonSpit
                 break;
             case HuiStage.Ground:
-                GroundSkills[Random.Range(0, GroundSkills.Count)].PerformSkill();
+                PerformSkill(GroundSkills[Random.Range(0, GroundSkills.Count)]);
                 //Sweep
                 //Constrict
-                //Bite
+                //VenomousBite
                 break;
         }
     }

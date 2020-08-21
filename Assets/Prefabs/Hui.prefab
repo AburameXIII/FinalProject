@@ -159,13 +159,6 @@ GameObject:
   - component: {fileID: 2702699139509767475}
   - component: {fileID: 6048431113572861868}
   - component: {fileID: 2450716264774824504}
-  - component: {fileID: 1940690942628107875}
-  - component: {fileID: 3411987511699166197}
-  - component: {fileID: 5967822603910936466}
-  - component: {fileID: 1875632870790866193}
-  - component: {fileID: 3728210020558624792}
-  - component: {fileID: 4582803346087680592}
-  - component: {fileID: 1207621051676358712}
   m_Layer: 8
   m_Name: Hui
   m_TagString: Untagged
@@ -221,149 +214,24 @@ MonoBehaviour:
   MaxSecondaryResource: 0
   CurrentSecondaryResource: 0
   SecondaryResource: 0
-  BaseSpeed: 20
-  BaseDefense: 20
-  BaseAttack: 20
-  BaseLuck: 20
-  CurrentSpeed: 20
-  CurrentDefense: 20
-  CurrentAttack: 20
-  CurrentLuck: 20
+  Speed:
+    BaseValue: 0
+    statModifiers:
+    - Value: 0
+    - Value: 0
+  Defense:
+    BaseValue: 0
+    statModifiers: []
+  Attack:
+    BaseValue: 0
+    statModifiers: []
+  Luck:
+    BaseValue: 0
+    statModifiers: []
   CurrentTimeToNextTurn: 0
   Emnity: 0
   BattleHUDPrefab: {fileID: 9117556131758720163, guid: 5a71f4b7422489e45af40dcf090c2a23,
     type: 3}
-  BattleHUD: {fileID: 0}
   TurnSprite: {fileID: 21300000, guid: e0f6cbf183a0ff5488e8ec28790e332d, type: 3}
   DamageTextPrefab: {fileID: 5278736328723432, guid: 14fdfa38c90767247af5c560ad0b9408,
     type: 3}
-  PsychicSkills:
-  - {fileID: 1940690942628107875}
-  FlyingSkills:
-  - {fileID: 5967822603910936466}
-  - {fileID: 1207621051676358712}
-  GroundSkills:
-  - {fileID: 1940690942628107875}
-  - {fileID: 3728210020558624792}
-  - {fileID: 1875632870790866193}
---- !u!114 &1940690942628107875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727944816766162003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30957353535513e40b9e3be075194d06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillName: Sweep
-  ImageSkill: {fileID: 0}
-  SkillDescription: 
-  u: {fileID: 2450716264774824504}
-  MinAttackMultiplier: 1.2
-  MaxAttackMultiplier: 1.3
---- !u!114 &3411987511699166197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727944816766162003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c4e885d6f14f6418a0b2e719a5de17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Effect: 0
-  Stackable: 1
-  TurnDuration: 3
-  SkillSprite: {fileID: 21300000, guid: 4f6fe422a264dc642be6116d3da690ef, type: 3}
---- !u!114 &5967822603910936466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727944816766162003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e275b560ea0a9c1499a5d33770505466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillName: Tornado
-  ImageSkill: {fileID: 0}
-  SkillDescription: 
-  u: {fileID: 2450716264774824504}
-  MinAttackMultiplier: 0.2
-  MaxAttackMultiplier: 0.22
---- !u!114 &1875632870790866193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727944816766162003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc79def84e557a47a6ccf8a15376b4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillName: Venomous Bite
-  ImageSkill: {fileID: 0}
-  SkillDescription: 
-  u: {fileID: 2450716264774824504}
-  MinAttackMultiplier: 2
-  MaxAttackMultiplier: 2.5
-  Poison: {fileID: 3411987511699166197}
---- !u!114 &3728210020558624792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727944816766162003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c9a68a38fc553f4796ea1703e1b4e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillName: Constrict
-  ImageSkill: {fileID: 0}
-  SkillDescription: 
-  u: {fileID: 2450716264774824504}
-  Paralyze: {fileID: 4582803346087680592}
---- !u!114 &4582803346087680592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727944816766162003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcd7cd8d00372c640a8e5a2ae86aece1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Effect: 0
-  Stackable: 0
-  TurnDuration: 3
-  SkillSprite: {fileID: 21300000, guid: 82dca36b23ba56345ba798888306ef01, type: 3}
---- !u!114 &1207621051676358712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727944816766162003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91cf730aa0f6514582eaa03997f2edf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillName: Poisonous Spit
-  ImageSkill: {fileID: 0}
-  SkillDescription: 
-  u: {fileID: 2450716264774824504}
-  Poison: {fileID: 3411987511699166197}

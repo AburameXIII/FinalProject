@@ -16,14 +16,13 @@ public class Actions : MonoBehaviour
 
     public List<Action> ActionButtons;
 
-    public void Appear(Unit u)
+    public void Appear(CharacterUnit c)
     {
-        ICharacter c = u.GetComponent<ICharacter>();
-
         List<Skill> skills = c.GetSkills();
+
         for(int i = 0; i < skills.Count; i++)
         {
-            ActionButtons[i].SetSkill(c, skills[i], i);
+            ActionButtons[i].SetSkill(c, skills[i]);
         }
 
         StartLerpTime = Time.time;

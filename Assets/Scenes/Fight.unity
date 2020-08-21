@@ -1567,6 +1567,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   DefeatUI: {fileID: 1246711178}
   VictoryUI: {fileID: 1804392879}
+  PoisonIcon: {fileID: 21300000, guid: 4f6fe422a264dc642be6116d3da690ef, type: 3}
+  ParalyzeIcon: {fileID: 21300000, guid: 82dca36b23ba56345ba798888306ef01, type: 3}
+  AttackUpIcon: {fileID: 21300000, guid: bf33e038627b26d498bec2b76a572097, type: 3}
 --- !u!4 &515668694
 Transform:
   m_ObjectHideFlags: 0

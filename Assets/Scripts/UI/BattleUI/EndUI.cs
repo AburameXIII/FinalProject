@@ -38,11 +38,13 @@ public class EndUI : MonoBehaviour
         DestinationColor = new List<Color>();
         foreach(Graphic g in GraphicsToAnimate)
         {
-            DestinationColor.Add(g.color);
-            Color c = g.color;
-            c.a = 0;
-            g.color = c;
-            OriginColor.Add(c);
+            Color d = g.color;
+            d.a = 1;
+            DestinationColor.Add(d);
+            Color o = g.color;
+            o.a = 0;
+            g.color = o;
+            OriginColor.Add(o);
         }
 
         
@@ -61,10 +63,12 @@ public class EndUI : MonoBehaviour
         DestinationColor = new List<Color>();
         foreach (Graphic g in GraphicsToAnimate)
         {
-            OriginColor.Add(g.color);
-            Color c = g.color;
-            c.a = 0;
-            DestinationColor.Add(c);
+            Color d = g.color;
+            d.a = 1;
+            OriginColor.Add(d);
+            Color o = g.color;
+            o.a = 0;
+            DestinationColor.Add(o);
         }
 
         Disable = true;

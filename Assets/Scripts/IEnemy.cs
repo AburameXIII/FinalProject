@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnemy 
+public abstract class EnemyUnit : Unit
 {
-    void PerformAction();
+    public abstract void PerformAction();
 }

@@ -24,7 +24,7 @@ public class ExerciseFollowUI : MonoBehaviour
     public Button ExitButton;
 
     private MeasuringMethod m;
-    private IWorkoutObjective ObjectiveMeasure;
+    public IWorkoutObjective ObjectiveMeasure;
 
     private GameObject ExercisePreview;
 
@@ -109,6 +109,7 @@ public class ExerciseFollowUI : MonoBehaviour
                 HorizontalBar.gameObject.SetActive(true);
                 
                 HorizontalBar.ChangeCurrentMax(0, e.ObjectiveQuantity);
+                HorizontalBar.LerpDuration = 0.2f;
                 PaceTracker.Setup(e.Pace.x + e.Pace.y, e.ObjectiveQuantity, HorizontalBar);
                 ObjectiveMeasure = PaceTracker;
 
@@ -160,23 +161,26 @@ public class ExerciseFollowUI : MonoBehaviour
     {
         if (ObjectiveMeasure != null && ObjectiveMeasure.IsCompleted())
         {
-            WorkoutFollowUI.Instance.SwitchToRestUI();
             if (ObjectiveMeasure != null) ObjectiveMeasure.Stop();
             ObjectiveMeasure = null;
+            WorkoutFollowUI.Instance.SwitchToRestUI();
+            
         }
     }
 
     public void FinishExercise()
     {
-        WorkoutFollowUI.Instance.SwitchToRestUI();
-        if(ObjectiveMeasure!=null) ObjectiveMeasure.Stop();
+        if (ObjectiveMeasure != null) ObjectiveMeasure.Stop();
         ObjectiveMeasure = null;
+        WorkoutFollowUI.Instance.SwitchToRestUI();
+        
     }
 
     public void GoBack()
     {
-        WorkoutFollowUI.Instance.GoBack();
         if (ObjectiveMeasure != null) ObjectiveMeasure.Stop();
         ObjectiveMeasure = null;
+        WorkoutFollowUI.Instance.GoBack();
+        
     }
 }

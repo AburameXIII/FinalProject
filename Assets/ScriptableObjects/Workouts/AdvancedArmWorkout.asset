@@ -16,10 +16,34 @@ MonoBehaviour:
   Difficulty: 3
   EstimatedDuration: 30
   Exercises:
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  - {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
-  Experience: 200
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 10
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 10
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 10
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 10
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 10
+  - Exercise: {fileID: 11400000, guid: 26fe50c78912c8b4eb70e34456ee5cb6, type: 2}
+    ObjectiveType: 0
+    ObjectiveQuantity: 30
+    Pace: {x: 0, y: 0}
+    RestTime: 10
+  Experience: 600

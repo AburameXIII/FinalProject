@@ -41,8 +41,7 @@ public class EffectUI : MonoBehaviour
 
     public void SetSprite(SkillEffect e)
     {
-
-        EffectSprite.sprite = e.SkillSprite;
+        EffectSprite.sprite = CombatManager.Instance.GetEffectIcon(e.Effect);
         amount = 1;
     }
 

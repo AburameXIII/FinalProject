@@ -31,55 +31,57 @@ public class Pair<T, U>
 };
 
 
-public class Unit : MonoBehaviour
+
+
+public abstract class Unit : MonoBehaviour
 {
     public string UnitName;
 
     public int MaxHP;
     public int CurrentHP;
 
+    [HideInInspector]
     public UnitType UnitType;
 
     public int MaxSecondaryResource;
     public int CurrentSecondaryResource;
     public SecondaryResourceType SecondaryResource;
 
-    public int BaseSpeed;
-    public int BaseDefense;
-    public int BaseAttack;
-    public int BaseLuck;
+    public Stat Speed;
+    public Stat Defense;
+    public Stat Attack;
+    public Stat Luck;
 
-    public int CurrentSpeed;
-    public int CurrentDefense;
-    public int CurrentAttack;
-    public int CurrentLuck;
-    
+    //CHANGE WAY OF CALCULATING TURNS
+    [HideInInspector]
     public float CurrentTimeToNextTurn;
+    [HideInInspector]
     public int Emnity;
 
     public GameObject BattleHUDPrefab;
-    public BattleHUD BattleHUD;
+    private BattleHUD BattleHUD { get; set; }
 
+    [HideInInspector]
     public Sprite TurnSprite;
 
     public GameObject DamageTextPrefab;
 
-    public List<Pair<ActionSelectionEffect,int>> BeforeActionSelectionEffects;
-    public List<Pair<ActionSelectionEffect,int>> AfterActionSelectionEffects;
-    public List<Pair<PersitantEffect,int>> PersitantEffects;
-    public List<Pair<EndOfTurnEffect,int>> EndOfTurnEffects;
+    protected List<Pair<ActionSelectionEffect,int>> BeforeActionSelectionEffects;
+    protected List<Pair<ActionSelectionEffect,int>> AfterActionSelectionEffects;
+    protected List<Pair<PersitantEffect,int>> PersitantEffects;
+    protected List<Pair<EndOfTurnEffect,int>> EndOfTurnEffects;
 
 
     public void TakeDamage(float MinAttackMultiplier, float MaxAttackMultiplier, Unit AttackUnit)
     {
         float AttackMultiplier = UnityEngine.Random.Range(MinAttackMultiplier, MaxAttackMultiplier);
-        int Damage = Mathf.RoundToInt( AttackUnit.CurrentAttack * AttackMultiplier * (1 - CombatManager.Instance.DefenseResistanceCurve.Evaluate(CurrentDefense/999f)));
+        int Damage = Mathf.RoundToInt( AttackUnit.Attack.Value * AttackMultiplier * (1 - CombatManager.Instance.DefenseResistanceCurve.Evaluate(this.Defense.Value/999f)));
 
 
 
         
 
-        float CriticalChance = CombatManager.Instance.LuckCriticalCurve.Evaluate(AttackUnit.CurrentLuck/999f);
+        float CriticalChance = CombatManager.Instance.LuckCriticalCurve.Evaluate(AttackUnit.Luck.Value/999f);
         float Chance = UnityEngine.Random.Range(0f, 1f);
         if(Chance < CriticalChance)
         {
@@ -108,7 +110,7 @@ public class Unit : MonoBehaviour
 
     public void ResetCurrentTimeToNextTurn()
     {
-        CurrentTimeToNextTurn = 1000 / CurrentSpeed;
+        CurrentTimeToNextTurn = 1000 / Speed.Value;
     }
 
 
@@ -224,5 +226,21 @@ public class Unit : MonoBehaviour
         BattleHUD.Setup(this);
     }
 
+    public void PerformSkill(Skill s)
+    {
+        foreach (Pair<ActionSelectionEffect, int> e in AfterActionSelectionEffects)
+        {
+            if (e.First.PerformEffect(this))
+            {
+                //DID NOT PERFORM SKILL
+                EndOfTurn();
+                return;
+            }
+
+
+        }
+
+        StartCoroutine(s.Performing());
+    }
 
 }

@@ -8,30 +8,36 @@ public class TapPunch : Skill
     public float MinAttackMultiplier;
     public float MaxAttackMultiplier;
 
+    public TapPunch(Unit User, Sprite Sprite): base(User)
+    {
+        MinAttackMultiplier = 0.4f;
+        MaxAttackMultiplier = 0.5f;
+        SkillName = "Tap Punch";
+        SkillDescription = "Punches a single enemy and regenerates 10 RG";
+        SkillImage = Sprite;
+    }
+
     public override bool CanPerform()
     {
         //CHECK LEVEL;
         return true;
     }
 
-    public override void PerformSkill(List<Unit> Targets)
-    {
-        this.Targets = Targets;
-        StartCoroutine(Performing());
-    }
+   
 
     public override void Perform()
     {
         foreach (Unit t in Targets)
         {
-            t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, u);
+            t.TakeDamage(MinAttackMultiplier, MaxAttackMultiplier, User);
         }
-        u.ChangeSecondary(10);
+        User.ChangeSecondary(10);
     }
 
 
     public override IEnumerator Performing()
     {
+        Targets = CombatManager.Instance.Enemies;
         //DO ANIMATIONS
        
         Debug.Log("performing tap punch");
@@ -41,6 +47,6 @@ public class TapPunch : Skill
         Perform();
 
         //Go to end of turn actions
-        u.EndOfTurn();
+        User.EndOfTurn();
     }
 }

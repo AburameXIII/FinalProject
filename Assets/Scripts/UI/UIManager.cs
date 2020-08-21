@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
 
     public void SwitchToWorkoutUI()
     {
+        WorkoutUI.GetComponent<WorkoutUI>().UpdateUI();
         HomeUI.GoRight();
         WorkoutUI.GoCenter();
     }

@@ -9,7 +9,5 @@ public abstract class EnemySkill : Skill
         return true;
     }
 
-    public abstract void PerformSkill();
-
-    
+    public EnemySkill(Unit User) : base(User) { }
 }

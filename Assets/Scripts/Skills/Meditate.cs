@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class Meditation : Skill
+public class Meditate : Skill
 {
     public List<SkillEffect> Effects;
+
+    public Meditate(Unit User, Sprite Sprite) : base(User)
+    {
+        SkillName = "Meditate";
+        SkillDescription = "Consumes RG to recover HP";
+        SkillImage = Sprite;
+    }
 
     public override bool CanPerform()
     {
         //CHECK LEVEL;
-        return u.CurrentSecondaryResource >= 1;
+        return User.CurrentSecondaryResource >= 1;
     }
 
-    public override void PerformSkill(List<Unit> Targets)
-    {
-        this.Targets = Targets;
-        StartCoroutine(Performing());
-    }
+    
 
     public override void Perform()
     {
-        u.ChangeHealth(u.CurrentSecondaryResource);
-        u.ChangeSecondary(-u.CurrentSecondaryResource);
+        User.ChangeHealth(User.CurrentSecondaryResource);
+        User.ChangeSecondary(-User.CurrentSecondaryResource);
     }
 
 
@@ -37,6 +40,6 @@ public class Meditation : Skill
         Perform();
 
         //Go to end of turn actions
-        u.EndOfTurn();
+        User.EndOfTurn();
     }
 }

@@ -10,7 +10,7 @@ public class Paralyze : ActionSelectionEffect
         return UnityEngine.Random.value < 0.5f;
     }
 
-    void Awake()
+    public Paralyze()
     {
         Effect = Effect.Paralyze;
         Stackable = false;

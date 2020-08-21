@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Skill : MonoBehaviour
+public enum TargetType
+{
+    Self, SingleEnemy, SingleAlly, AllAllies, AllEnemies, SelfAndSingleAlly, 
+}
+
+public abstract class Skill
 {
     public string SkillName;
-    public Sprite ImageSkill;
     public string SkillDescription;
-    public Unit u;
+    public Unit User;
     protected List<Unit> Targets;
+    public TargetType TargetType;
+    public Sprite SkillImage;
+    
+    public Skill(Unit User)
+    {
+        this.User = User;
+    }
 
     public abstract bool CanPerform();
 
-    public abstract void PerformSkill(List<Unit> Targets);
     public abstract void Perform();
 
     public abstract IEnumerator Performing();

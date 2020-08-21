@@ -5,7 +5,16 @@ using UnityEngine;
 
 public class Warcry : Skill
 {
-    public IncreaseAttack IncreaseAttack;
+    private float AttackModifierPercentage;
+
+    public Warcry(Unit User, Sprite Sprite) : base(User)
+    {
+        AttackModifierPercentage = 0.1f;
+        SkillName = "Warcry";
+        SkillDescription = "Increases allies attack by 10% and generates 40 RG";
+        SkillImage = Sprite;
+    }
+
 
     public override bool CanPerform()
     {
@@ -13,20 +22,16 @@ public class Warcry : Skill
          return true;
     }
 
-    public override void PerformSkill(List<Unit> Targets)
-    {
-        this.Targets = Targets;
-        StartCoroutine(Performing());
-    }
+    
 
     public override void Perform()
     {
         foreach (Unit u in CombatManager.Instance.Characters)
         {
             //u.TakeDamage(100);
-            u.AddPersistantEffect(IncreaseAttack);
+            u.AddPersistantEffect(new IncreaseAttack(AttackModifierPercentage));
         }
-        u.ChangeSecondary(40);
+        User.ChangeSecondary(40);
     }
 
 
@@ -41,6 +46,6 @@ public class Warcry : Skill
         Perform();
 
         //Go to end of turn actions
-        u.EndOfTurn();
+        User.EndOfTurn();
     }
 }

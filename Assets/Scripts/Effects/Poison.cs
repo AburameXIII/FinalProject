@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Poison : EndOfTurnEffect
 {
-    public override void PerformEffect(Unit u)
+    private float HealthPercentage;
+
+    public Poison(float HealthPercentage)
     {
-        u.ChangeHealth(-Mathf.RoundToInt(u.MaxHP * 0.05f));
+        this.HealthPercentage = HealthPercentage;
+        this.Effect = Effect.Poison;
+        Stackable = true;
     }
 
-    void Awake()
+    public Poison() : this(0.05f) { }
+
+    public override void PerformEffect(Unit u)
     {
-        Effect = Effect.Poison;
-        Stackable = true;
+        u.ChangeHealth(-Mathf.RoundToInt(u.MaxHP * HealthPercentage));
     }
 
 }
